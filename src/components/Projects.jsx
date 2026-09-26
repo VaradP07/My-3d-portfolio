@@ -1,0 +1,181 @@
+import { motion } from "framer-motion";
+
+const projects = [
+  {
+    number: "01",
+    category: "AI / MACHINE LEARNING",
+    title: "Anime Recommendation System",
+    description:
+      "A web-based anime recommendation platform that uses content-based recommendation techniques to suggest similar anime based on their features.",
+    technologies: [
+      "React",
+      "Node.js",
+      "Firebase",
+      "TF-IDF",
+      "Cosine Similarity"
+    ],
+    github: "#",
+    demo: "#"
+  },
+
+  {
+    number: "02",
+    category: "AI / DATA SCIENCE",
+    title: "Stock Market Prediction",
+    description:
+      "An AI-powered application designed to analyze financial data and provide prediction-oriented insights using machine learning techniques.",
+    technologies: [
+      "React",
+      "Python",
+      "FastAPI",
+      "Scikit-learn",
+      "Machine Learning"
+    ],
+    github: "#",
+    demo: "#"
+  },
+
+  {
+    number: "03",
+    category: "FULL STACK",
+    title: "Smart Billing System",
+    description:
+      "A billing management application for handling products, customers and billing operations through a structured software system.",
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "Database",
+      "REST API"
+    ],
+    github: "#",
+    demo: "#"
+  }
+];
+
+
+function Projects() {
+  return (
+    <section
+      id="projects"
+      className="projects-section"
+    >
+
+      <div className="section-heading">
+        <span>03</span>
+
+        <h2>Featured Projects</h2>
+      </div>
+
+
+      <p className="section-description">
+        A selection of projects where I applied programming,
+        web development and AI concepts to build practical
+        applications.
+      </p>
+
+
+      <div className="projects-grid">
+
+        {projects.map((project, index) => (
+
+          <motion.article
+            className="project-card"
+            key={project.number}
+
+            initial={{
+              opacity: 0,
+              y: 60
+            }}
+
+            whileInView={{
+              opacity: 1,
+              y: 0
+            }}
+
+            viewport={{
+              once: true,
+              amount: 0.15
+            }}
+
+            transition={{
+              duration: 0.6,
+              delay: index * 0.15
+            }}
+
+            whileHover={{
+              y: -12,
+              rotateX: 2,
+              rotateY: -2
+            }}
+          >
+
+            <div className="project-top">
+
+              <span className="project-number">
+                {project.number}
+              </span>
+
+              <span className="project-category">
+                {project.category}
+              </span>
+
+            </div>
+
+
+            <h3>
+              {project.title}
+            </h3>
+
+
+            <p className="project-description">
+              {project.description}
+            </p>
+
+
+            <div className="project-technologies">
+
+              {project.technologies.map((technology) => (
+
+                <span key={technology}>
+                  {technology}
+                </span>
+
+              ))}
+
+            </div>
+
+
+            <div className="project-actions">
+
+              <a
+                href={project.github}
+                className="project-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub ↗
+              </a>
+
+
+              <a
+                href={project.demo}
+                className="project-link project-demo"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Live Demo ↗
+              </a>
+
+            </div>
+
+          </motion.article>
+
+        ))}
+
+      </div>
+
+    </section>
+  );
+}
+
+export default Projects;
