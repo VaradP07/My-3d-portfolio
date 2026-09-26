@@ -15,9 +15,22 @@ function Contact() {
         <h2>Let's Connect</h2>
       </div>
 
-      <p className="contact-description">
-        Have a project, opportunity or idea? I'd love to hear from you.
-      </p>
+      <div className="contact-intro">
+        <div>
+          <span className="contact-label">HAVE AN IDEA?</span>
+
+          <h3>
+            Let's build something
+            <span> meaningful.</span>
+          </h3>
+        </div>
+
+        <p>
+          Have a project, opportunity or idea? I'd love to hear from you.
+          Whether you're looking to collaborate or simply want to say hello,
+          feel free to reach out.
+        </p>
+      </div>
 
       <div className="contact-links">
 
@@ -25,15 +38,19 @@ function Contact() {
         <motion.a
           href="mailto:patilvarad290@gmail.com"
           className="contact-card"
-          whileHover={{ y: -7 }}
+          whileHover={{ y: -8 }}
+          transition={{ duration: 0.25 }}
         >
-          <span>✉</span>
+          <div className="contact-icon">✉</div>
 
-          <div>
-            <small>Email</small>
+          <div className="contact-card-content">
+            <small>EMAIL</small>
             <strong>patilvarad290@gmail.com</strong>
           </div>
+
+          <span className="contact-arrow">↗</span>
         </motion.a>
+
 
         {/* GitHub */}
         <motion.a
@@ -41,15 +58,19 @@ function Contact() {
           target="_blank"
           rel="noopener noreferrer"
           className="contact-card"
-          whileHover={{ y: -7 }}
+          whileHover={{ y: -8 }}
+          transition={{ duration: 0.25 }}
         >
-          <span>⌘</span>
+          <div className="contact-icon">⌘</div>
 
-          <div>
-            <small>GitHub</small>
+          <div className="contact-card-content">
+            <small>GITHUB</small>
             <strong>VaradP07</strong>
           </div>
+
+          <span className="contact-arrow">↗</span>
         </motion.a>
+
 
         {/* LinkedIn */}
         <motion.a
@@ -57,16 +78,24 @@ function Contact() {
           target="_blank"
           rel="noopener noreferrer"
           className="contact-card"
-          whileHover={{ y: -7 }}
+          whileHover={{ y: -8 }}
+          transition={{ duration: 0.25 }}
         >
-          <span>in</span>
+          <div className="contact-icon">in</div>
 
-          <div>
-            <small>LinkedIn</small>
+          <div className="contact-card-content">
+            <small>LINKEDIN</small>
             <strong>Varad Patil</strong>
           </div>
+
+          <span className="contact-arrow">↗</span>
         </motion.a>
 
+      </div>
+
+      <div className="contact-bottom">
+        <span className="contact-status-dot"></span>
+        <span>OPEN TO OPPORTUNITIES</span>
       </div>
     </motion.section>
   );

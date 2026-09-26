@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import Cursor from "./components/Cursor";
 import ScrollProgress from "./components/ScrollProgress";
 
 import Hero from "./components/Hero";
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <Cursor />
 
       <main>
         <Hero />

@@ -16,7 +16,24 @@ function About() {
       </div>
 
       <div className="about-content">
-        <div className="about-text">
+
+        {/* Left side */}
+        <motion.div
+          className="about-text"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="about-intro">
+            <span className="about-label">WHO I AM</span>
+
+            <h3>
+              Turning ideas into
+              <span> digital experiences.</span>
+            </h3>
+          </div>
+
           <p>
             I'm <strong>Varad Patil</strong>, an MCA student and developer
             interested in building modern web applications and intelligent
@@ -36,18 +53,40 @@ function About() {
             continuously learning new technologies and improving my
             development skills through projects.
           </p>
-        </div>
 
+          <div className="about-status">
+            <span className="status-dot"></span>
+            <span>Currently learning & building</span>
+          </div>
+        </motion.div>
+
+
+        {/* Right developer card */}
         <motion.div
           className="about-card"
+          initial={{ opacity: 0, x: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.15 }}
           whileHover={{
-            y: -8,
+            y: -10,
             rotateX: 3,
             rotateY: -3,
           }}
-          transition={{ duration: 0.3 }}
         >
-          <div className="about-card-icon">{"</>"}</div>
+
+          <div className="about-card-top">
+            <span className="about-card-number">01</span>
+
+            <div className="about-card-status">
+              <span></span>
+              AVAILABLE
+            </div>
+          </div>
+
+          <div className="about-card-icon">
+            {"</>"}
+          </div>
 
           <h3>Developer</h3>
 
@@ -56,13 +95,23 @@ function About() {
             problem-solving.
           </p>
 
+          <div className="about-card-divider"></div>
+
           <div className="about-card-tags">
             <span>React</span>
             <span>JavaScript</span>
             <span>Python</span>
+            <span>Java</span>
             <span>AI / ML</span>
           </div>
+
+          <div className="about-card-code">
+            <span>const</span> developer ={" "}
+            <span>"Varad Patil"</span>;
+          </div>
+
         </motion.div>
+
       </div>
     </motion.section>
   );

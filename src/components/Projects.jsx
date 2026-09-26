@@ -12,10 +12,10 @@ const projects = [
       "Node.js",
       "Firebase",
       "TF-IDF",
-      "Cosine Similarity"
+      "Cosine Similarity",
     ],
-    github: "#",
-    demo: "#"
+    github: "https://github.com/VaradP07/anime-AI-recommendation-system",
+    demo: "#",  
   },
 
   {
@@ -29,10 +29,10 @@ const projects = [
       "Python",
       "FastAPI",
       "Scikit-learn",
-      "Machine Learning"
+      "Machine Learning",
     ],
     github: "#",
-    demo: "#"
+    demo: "#",
   },
 
   {
@@ -45,27 +45,27 @@ const projects = [
       "Java",
       "Spring Boot",
       "Database",
-      "REST API"
+      "REST API",
     ],
     github: "#",
-    demo: "#"
-  }
+    demo: "#",
+  },
 ];
-
 
 function Projects() {
   return (
-    <section
+    <motion.section
       id="projects"
       className="projects-section"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.7 }}
     >
-
       <div className="section-heading">
         <span>03</span>
-
         <h2>Featured Projects</h2>
       </div>
-
 
       <p className="section-description">
         A selection of projects where I applied programming,
@@ -73,44 +73,35 @@ function Projects() {
         applications.
       </p>
 
-
       <div className="projects-grid">
-
         {projects.map((project, index) => (
-
           <motion.article
             className="project-card"
             key={project.number}
-
             initial={{
               opacity: 0,
-              y: 60
+              y: 60,
             }}
-
             whileInView={{
               opacity: 1,
-              y: 0
+              y: 0,
             }}
-
             viewport={{
               once: true,
-              amount: 0.15
+              amount: 0.15,
             }}
-
             transition={{
               duration: 0.6,
-              delay: index * 0.15
+              delay: index * 0.15,
             }}
-
             whileHover={{
               y: -12,
               rotateX: 2,
-              rotateY: -2
+              rotateY: -2,
             }}
           >
-
+            {/* Card top */}
             <div className="project-top">
-
               <span className="project-number">
                 {project.number}
               </span>
@@ -118,35 +109,39 @@ function Projects() {
               <span className="project-category">
                 {project.category}
               </span>
-
             </div>
 
+            {/* Project visual */}
+            <div className="project-visual">
+              <div className="project-visual-grid"></div>
 
-            <h3>
-              {project.title}
-            </h3>
+              <div className="project-orbit orbit-one"></div>
+              <div className="project-orbit orbit-two"></div>
 
-
-            <p className="project-description">
-              {project.description}
-            </p>
-
-
-            <div className="project-technologies">
-
-              {project.technologies.map((technology) => (
-
-                <span key={technology}>
-                  {technology}
-                </span>
-
-              ))}
-
+              <div className="project-core">
+                {project.number}
+              </div>
             </div>
 
+            {/* Project information */}
+            <div className="project-content">
+              <h3>{project.title}</h3>
 
+              <p className="project-description">
+                {project.description}
+              </p>
+
+              <div className="project-technologies">
+                {project.technologies.map((technology) => (
+                  <span key={technology}>
+                    {technology}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Actions */}
             <div className="project-actions">
-
               <a
                 href={project.github}
                 className="project-link"
@@ -156,7 +151,6 @@ function Projects() {
                 GitHub ↗
               </a>
 
-
               <a
                 href={project.demo}
                 className="project-link project-demo"
@@ -165,16 +159,11 @@ function Projects() {
               >
                 Live Demo ↗
               </a>
-
             </div>
-
           </motion.article>
-
         ))}
-
       </div>
-
-    </section>
+    </motion.section>
   );
 }
 

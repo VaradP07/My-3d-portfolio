@@ -3,75 +3,124 @@ import Scene from "./3d/Scene";
 
 function Hero() {
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero-section">
 
-      <motion.div
-        className="hero-content"
-        initial={{ opacity: 0, x: -60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-      >
+      <div className="hero-content">
 
-        <p className="hero-small">
+        {/* Status */}
+        <motion.div
+          className="hero-status"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="status-dot"></span>
+          AVAILABLE FOR OPPORTUNITIES
+        </motion.div>
+
+        {/* Small introduction */}
+        <motion.p
+          className="hero-intro"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           Hello, I'm
-        </p>
+        </motion.p>
 
-        <h1>
-          Varad Patil
-        </h1>
+        {/* Name */}
+        <motion.h1
+          className="hero-title"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          Varad
+          <span> Patil</span>
+        </motion.h1>
 
-        <h2>
+        {/* Role */}
+        <motion.h2
+          className="hero-role"
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+        >
           MCA Student & Developer
-        </h2>
+        </motion.h2>
 
-        <p className="hero-description">
-          I build modern web applications and intelligent
-          software experiences using JavaScript, React,
-          Python, AI and Machine Learning.
-        </p>
+        {/* Description */}
+        <motion.p
+          className="hero-description"
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.45 }}
+        >
+          I build modern web applications and intelligent software
+          experiences using JavaScript, React, Python, Java and
+          Machine Learning.
+        </motion.p>
 
-        <div className="hero-buttons">
-
-          <a
-            href="#projects"
-            className="primary-button"
-          >
-            View My Work
+        {/* Buttons */}
+        <motion.div
+          className="hero-buttons"
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.55 }}
+        >
+          <a href="#projects" className="primary-button">
+            Explore Projects
+            <span>↗</span>
           </a>
 
-          <a
-            href="#contact"
-            className="secondary-button"
-          >
-            Contact Me
+          <a href="#contact" className="secondary-button">
+            Let's Connect
           </a>
+        </motion.div>
 
-          <a
-            href="/resume.pdf"
-            className="secondary-button"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Resume ↗
-          </a>
+        {/* Technology tags */}
+        <motion.div
+          className="hero-tech-stack"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <span>JavaScript</span>
+          <i>•</i>
+          <span>React</span>
+          <i>•</i>
+          <span>Python</span>
+          <i>•</i>
+          <span>Java</span>
+          <i>•</i>
+          <span>AI / ML</span>
+        </motion.div>
 
-        </div>
+      </div>
 
-      </motion.div>
-
-
+      {/* 3D Scene */}
       <motion.div
         className="hero-3d"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
-          duration: 1,
-          delay: 0.2
+          duration: 1.2,
+          delay: 0.3,
+          ease: "easeOut",
         }}
       >
-
         <Scene />
+      </motion.div>
 
+      {/* Scroll indicator */}
+      <motion.div
+        className="hero-scroll"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
+      >
+        <span>SCROLL TO EXPLORE</span>
+        <div className="scroll-arrow">↓</div>
       </motion.div>
 
     </section>

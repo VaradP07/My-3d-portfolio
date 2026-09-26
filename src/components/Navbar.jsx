@@ -1,15 +1,62 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
+  const navItems = [
+    { name: "Home", id: "home" },
+    { name: "About", id: "about" },
+    { name: "Skills", id: "skills" },
+    { name: "Projects", id: "projects" },
+    { name: "Contact", id: "contact" },
+  ];
+
+  // Detect which section is currently visible
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems
+        .map((item) => document.getElementById(item.id))
+        .filter(Boolean);
+
+      let current = "home";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (
+          window.scrollY + 180 >= sectionTop &&
+          window.scrollY + 180 < sectionTop + sectionHeight
+        ) {
+          current = section.id;
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  const handleNavClick = () => {
     setMenuOpen(false);
   };
 
   return (
     <nav className="navbar">
 
+      {/* Logo */}
       <a
         href="#home"
         className="logo"
@@ -20,22 +67,22 @@ function Navbar() {
         <span>/&gt;</span>
       </a>
 
-
-      {/* Desktop navigation */}
-
+      {/* Desktop Navigation */}
       <div className="nav-links">
-
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-
+        {navItems.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={activeSection === item.id ? "active" : ""}
+            onClick={handleNavClick}
+          >
+            <span className="nav-dot"></span>
+            {item.name}
+          </a>
+        ))}
       </div>
 
-
-      {/* Mobile menu button */}
-
+      {/* Mobile Menu Button */}
       <button
         className="menu-button"
         onClick={() => setMenuOpen(!menuOpen)}
@@ -44,50 +91,23 @@ function Navbar() {
         {menuOpen ? "✕" : "☰"}
       </button>
 
-
-      {/* Mobile navigation */}
-
+      {/* Mobile Navigation */}
       <div
         className={`mobile-menu ${
           menuOpen ? "mobile-menu-open" : ""
         }`}
       >
-
-        <a
-          href="#home"
-          onClick={closeMenu}
-        >
-          Home
-        </a>
-
-        <a
-          href="#about"
-          onClick={closeMenu}
-        >
-          About
-        </a>
-
-        <a
-          href="#skills"
-          onClick={closeMenu}
-        >
-          Skills
-        </a>
-
-        <a
-          href="#projects"
-          onClick={closeMenu}
-        >
-          Projects
-        </a>
-
-        <a
-          href="#contact"
-          onClick={closeMenu}
-        >
-          Contact
-        </a>
-
+        {navItems.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={activeSection === item.id ? "active" : ""}
+            onClick={handleNavClick}
+          >
+            <span className="mobile-nav-dot"></span>
+            {item.name}
+          </a>
+        ))}
       </div>
 
     </nav>
