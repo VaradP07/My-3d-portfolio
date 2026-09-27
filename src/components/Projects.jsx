@@ -15,7 +15,7 @@ const projects = [
       "Cosine Similarity",
     ],
     github: "https://github.com/VaradP07/anime-AI-recommendation-system",
-    demo: "#",  
+    demo: "#",
   },
 
   {
@@ -143,21 +143,33 @@ function Projects() {
             {/* Actions */}
             <div className="project-actions">
               <a
-                href={project.github}
-                className="project-link"
-                target="_blank"
-                rel="noreferrer"
+                href={project.github !== "#" ? project.github : undefined}
+                className={`project-link ${project.github === "#" ? "project-link-disabled" : ""
+                  }`}
+                target={project.github !== "#" ? "_blank" : undefined}
+                rel={project.github !== "#" ? "noreferrer" : undefined}
+                onClick={(e) => {
+                  if (project.github === "#") {
+                    e.preventDefault();
+                  }
+                }}
               >
-                GitHub ↗
+                {project.github !== "#" ? "GitHub ↗" : "GitHub — Soon"}
               </a>
 
               <a
-                href={project.demo}
-                className="project-link project-demo"
-                target="_blank"
-                rel="noreferrer"
+                href={project.demo !== "#" ? project.demo : undefined}
+                className={`project-link project-demo ${project.demo === "#" ? "project-link-disabled" : ""
+                  }`}
+                target={project.demo !== "#" ? "_blank" : undefined}
+                rel={project.demo !== "#" ? "noreferrer" : undefined}
+                onClick={(e) => {
+                  if (project.demo === "#") {
+                    e.preventDefault();
+                  }
+                }}
               >
-                Live Demo ↗
+                {project.demo !== "#" ? "Live Demo ↗" : "Live Demo — Soon"}
               </a>
             </div>
           </motion.article>

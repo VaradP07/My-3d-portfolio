@@ -3668,3 +3668,16 @@ a {
     display: none;
   }
 }
+
+/* Unavailable project links */
+
+.project-link-disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.project-link-disabled:hover {
+  color: #71717a;
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+}
