@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 const projects = [
   {
     number: "01",
+    status: "SOURCE AVAILABLE",
     category: "AI / MACHINE LEARNING",
     title: "Anime Recommendation System",
     description:
@@ -17,9 +18,9 @@ const projects = [
     github: "https://github.com/VaradP07/anime-AI-recommendation-system",
     demo: "#",
   },
-
   {
     number: "02",
+    status: "IN DEVELOPMENT",
     category: "AI / DATA SCIENCE",
     title: "Stock Market Prediction",
     description:
@@ -34,9 +35,9 @@ const projects = [
     github: "#",
     demo: "#",
   },
-
   {
     number: "03",
+    status: "IN DEVELOPMENT",
     category: "FULL STACK",
     title: "Smart Billing System",
     description:
@@ -102,13 +103,16 @@ function Projects() {
           >
             {/* Card top */}
             <div className="project-top">
-              <span className="project-number">
-                {project.number}
-              </span>
+              <span className="project-number">{project.number}</span>
 
-              <span className="project-category">
-                {project.category}
-              </span>
+              <div className="project-top-right">
+                <span className="project-status">
+                  <span className="project-status-dot"></span>
+                  {project.status}
+                </span>
+
+                <span className="project-category">{project.category}</span>
+              </div>
             </div>
 
             {/* Project visual */}
