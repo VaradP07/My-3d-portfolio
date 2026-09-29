@@ -37,18 +37,20 @@ const projects = [
   },
   {
     number: "03",
-    status: "IN DEVELOPMENT",
+    status: "SOURCE AVAILABLE",
     category: "FULL STACK",
     title: "Smart Billing System",
     description:
       "A billing management application for handling products, customers and billing operations through a structured software system.",
     technologies: [
-      "Java",
-      "Spring Boot",
-      "Database",
-      "REST API",
+      "Python",
+      "Tkinter",
+      "SQLite",
+      "JSON",
+      "ReportLab",
+      "OpenCV",
     ],
-    github: "#",
+    github: "https://github.com/VaradP07/Smart-Billing-System",
     demo: "#",
   },
 ];
