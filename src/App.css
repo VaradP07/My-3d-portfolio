@@ -3874,3 +3874,34 @@ a {
     min-width: 100px;
   }
 }
+
+/* ================================
+   CONTACT SOCIAL ICONS
+================================ */
+
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-icon svg {
+  width: 20px;
+  height: 20px;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.contact-card:hover .contact-icon svg {
+  transform: scale(1.12);
+  color: #c084fc;
+}
+
+.social-icon {
+  color: #a855f7;
+}
+
+.linkedin-icon {
+  font-size: 18px;
+}
