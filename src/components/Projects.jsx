@@ -19,21 +19,21 @@ const projects = [
     demo: "#",
   },
   {
-    number: "02",
-    status: "IN DEVELOPMENT",
-    category: "AI / DATA SCIENCE",
-    title: "Stock Market Prediction",
-    description:
-      "An AI-powered application designed to analyze financial data and provide prediction-oriented insights using machine learning techniques.",
-    technologies: [
-      "React",
-      "Python",
-      "FastAPI",
-      "Scikit-learn",
-      "Machine Learning",
-    ],
-    github: "#",
-    demo: "#",
+  number: "02",
+  status: "IN DEVELOPMENT",
+  category: "MERN / AI",
+  title: "AI Expense Manager",
+  description:
+    "An AI-powered expense management application currently under development, designed to help users track, categorize and understand their spending through intelligent insights and a modern web interface.",
+  technologies: [
+    "MongoDB",
+    "Express.js",
+    "React",
+    "Node.js",
+    "AI",
+  ],
+  github: "https://github.com/VaradP07/AI-Expense-Manager",
+  demo: "#",
   },
   {
     number: "03",
