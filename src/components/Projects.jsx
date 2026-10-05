@@ -19,21 +19,21 @@ const projects = [
     demo: "#",
   },
   {
-  number: "02",
-  status: "IN DEVELOPMENT",
-  category: "MERN / AI",
-  title: "AI Expense Manager",
-  description:
-    "An AI-powered expense management application currently under development, designed to help users track, categorize and understand their spending through intelligent insights and a modern web interface.",
-  technologies: [
-    "MongoDB",
-    "Express.js",
-    "React",
-    "Node.js",
-    "AI",
-  ],
-  github: "https://github.com/VaradP07/AI-Expense-Manager",
-  demo: "#",
+    number: "02",
+    status: "IN DEVELOPMENT",
+    category: "MERN / AI",
+    title: "AI Expense Manager",
+    description:
+      "An AI-powered expense management application currently under development, designed to help users track, categorize and understand their spending through intelligent insights and a modern web interface.",
+    technologies: [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "AI",
+    ],
+    github: "https://github.com/VaradP07/AI-Expense-Manager",
+    demo: "#",
   },
   {
     number: "03",
@@ -108,7 +108,12 @@ function Projects() {
               <span className="project-number">{project.number}</span>
 
               <div className="project-top-right">
-                <span className="project-status">
+                <span
+                  className={`project-status ${project.status === "IN DEVELOPMENT"
+                      ? "project-status-development"
+                      : "project-status-available"
+                    }`}
+                >
                   <span className="project-status-dot"></span>
                   {project.status}
                 </span>

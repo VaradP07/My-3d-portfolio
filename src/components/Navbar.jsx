@@ -12,7 +12,6 @@ function Navbar() {
     { name: "Contact", id: "contact" },
   ];
 
-  // Detect which section is currently visible
   useEffect(() => {
     const handleScroll = () => {
       const sections = navItems
@@ -37,7 +36,6 @@ function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     handleScroll();
 
     return () => {
@@ -49,32 +47,21 @@ function Navbar() {
     setMenuOpen(false);
   };
 
-  const handleNavClick = () => {
-    setMenuOpen(false);
-  };
-
   return (
     <nav className="navbar">
-
-      {/* Logo */}
-      <a
-        href="#home"
-        className="logo"
-        onClick={closeMenu}
-      >
+      <a href="#home" className="logo" onClick={closeMenu}>
         <span>&lt;</span>
         Portfolio
         <span>/&gt;</span>
       </a>
 
-      {/* Desktop Navigation */}
       <div className="nav-links">
         {navItems.map((item) => (
           <a
             key={item.id}
             href={`#${item.id}`}
             className={activeSection === item.id ? "active" : ""}
-            onClick={handleNavClick}
+            onClick={closeMenu}
           >
             <span className="nav-dot"></span>
             {item.name}
@@ -82,7 +69,11 @@ function Navbar() {
         ))}
       </div>
 
-      {/* Mobile Menu Button */}
+      <div className="navbar-status">
+        <span></span>
+        <small>ONLINE</small>
+      </div>
+
       <button
         className="menu-button"
         onClick={() => setMenuOpen(!menuOpen)}
@@ -91,25 +82,19 @@ function Navbar() {
         {menuOpen ? "✕" : "☰"}
       </button>
 
-      {/* Mobile Navigation */}
-      <div
-        className={`mobile-menu ${
-          menuOpen ? "mobile-menu-open" : ""
-        }`}
-      >
+      <div className={`mobile-menu ${menuOpen ? "mobile-menu-open" : ""}`}>
         {navItems.map((item) => (
           <a
             key={item.id}
             href={`#${item.id}`}
             className={activeSection === item.id ? "active" : ""}
-            onClick={handleNavClick}
+            onClick={closeMenu}
           >
             <span className="mobile-nav-dot"></span>
             {item.name}
           </a>
         ))}
       </div>
-
     </nav>
   );
 }

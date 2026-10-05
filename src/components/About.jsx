@@ -60,6 +60,23 @@ function About() {
           </div>
         </motion.div>
 
+        <div className="about-stats">
+          <div className="about-stat">
+            <strong>03+</strong>
+            <span>Projects</span>
+          </div>
+
+          <div className="about-stat">
+            <strong>10+</strong>
+            <span>Core Technologies</span>
+          </div>
+
+          <div className="about-stat">
+            <strong>∞</strong>
+            <span>Learning</span>
+          </div>
+        </div>
+
 
         {/* Right developer card */}
         <motion.div
